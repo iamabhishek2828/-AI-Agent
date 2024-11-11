@@ -1,0 +1,23 @@
+# Ignore .env file (store sensitive keys)
+.env
+
+# Node.js dependencies
+node_modules/
+
+# Python dependencies
+__pycache__/
+*.pyc
+
+# IDE/editor files (VSCode, etc.)
+.vscode/
+
+# Operating system files (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Ignore credentials files (store sensitive data)
+ai-agent-39362-firebase-adminsdk-kcec2-c8d52150c8.json
+mythic-reach-441020-s1-cd2ec16edee7.json
