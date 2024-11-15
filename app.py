@@ -26,7 +26,8 @@ firebase_credentials_path = os.getenv(
 # Set up Google service account with correct scope for Generative Language API
 google_credentials_path = os.getenv(
     "GOOGLE_APPLICATION_CREDENTIALS",
-    "AI_Agent_Project/mythic-reach-441020-s1-cd2ec16edee7.json"
+    "C:/Users/AADI/OneDrive/Desktop/New folder (5)/AI_Agent_Project/mythic-reach-441020-s1-cd2ec16edee7.json"
+
 )
 SCOPE = "https://www.googleapis.com/auth/generative-language"
 google_credentials = service_account.Credentials.from_service_account_file(
