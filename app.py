@@ -11,7 +11,6 @@ import firebase_admin
 from firebase_admin import firestore
 from firebase_admin import credentials
 import time
-import speech_recognition as sr  # Import speech recognition
 
 # Load environment variables
 load_dotenv()
@@ -230,53 +229,38 @@ def main():
         st.write("Uploaded Data Preview:")
         st.write(data.head())
 
-        # Step 4: Choose Column for Query
-        column_name = st.selectbox("Select the column for querying", data.columns)
+        # Step 4: Choose Column for Entity Names
+        column = st.selectbox("Select the primary column for entities", data.columns)
 
-        # Step 5: Enter or Dictate Query
-        query_input = st.text_input("Enter query")
+        # Step 5: Define Query
+        query = st.text_area("Enter query", "Please input a query to search for entities.")
 
-        # Optional: Add Speech Recognition to "Enter Query"
-        if st.button("Use Voice Input"):
-            recognizer = sr.Recognizer()
-            with sr.Microphone() as source:
-                st.info("Listening for your query...")
-                audio = recognizer.listen(source)
-                try:
-                    query_input = recognizer.recognize_google(audio)
-                    st.success(f"Recognized query: {query_input}")
-                except sr.UnknownValueError:
-                    st.error("Sorry, I could not understand the audio. Please try again.")
-                except sr.RequestError as e:
-                    st.error(f"Error with the speech recognition service: {e}")
-                
-        # Proceed with the search
-        if query_input:
-            result = search_query(query_input)
-            summarized_result = process_with_gemini(result)
-            st.write("Result: ", result)
-            st.write("Summarized Result: ", summarized_result)
+        # Button to Execute Search and Summarization
+        if st.button("Search and Summarize"):
+            result_data = []
+            for _, row in data.iterrows():
+                entity_name = row[column]
+                result_link = search_query(query)
+                summarized_result = process_with_gemini(result_link)
+                result_data.append({"Entity": entity_name, "Query": query, "Result": result_link, "Summarized Result": summarized_result})
 
-            # Write results to Firebase and/or Google Sheets
-            results_df = pd.DataFrame({
-                "Entity": [query_input],
-                "Query": [query_input],
-                "Result": [result],
-                "Summarized Result": [summarized_result]
-            })
+            # Convert results to DataFrame
+            result_df = pd.DataFrame(result_data)
 
-            # Button to write to Firestore
-            if st.button("Write to Firestore"):
-                write_to_firestore(results_df)
+            # Display results
+            st.write("Search and Summarization Results:")
+            st.write(result_df)
 
-            # Button to write to Google Sheets
+            # Step 6: Write to Firestore or Google Sheets
+            write_to_firestore(result_df)
             if google_sheets_id and google_sheets_range:
-                if st.button("Write to Google Sheets"):
-                    write_to_google_sheets(results_df, google_sheets_id, google_sheets_range)
+                write_to_google_sheets(result_df, google_sheets_id, google_sheets_range)
 
-            # Fetch and display news
-            news_list = fetch_news(query_input)
-            display_news(news_list)
+    # Fetch and display related news
+    news_query = st.text_input("Enter query for related news")
+    if news_query:
+        news_list = fetch_news(news_query)
+        display_news(news_list)
 
 if __name__ == "__main__":
     main()
