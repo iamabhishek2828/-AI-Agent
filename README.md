@@ -157,5 +157,4 @@ This project is licensed under the **MIT License**, granting you the freedom to 
 - **Google** for the powerful APIs like Generative Language API and Firestore.
 - **Firebase** for providing real-time NoSQL database solutions.
 - **Streamlit** for simplifying the development of web applications.
-```
-
+  
