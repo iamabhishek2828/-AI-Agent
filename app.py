@@ -30,10 +30,10 @@ google_credentials_path = os.getenv(
 
 )
 SCOPE = "https://www.googleapis.com/auth/generative-language"
-google_credentials = service_account.Credentials.from_service_account_file(
-    google_credentials_path, scopes=[SCOPE]
+google_credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["GOOGLE_CREDENTIALS"],
+    scopes=["https://www.googleapis.com/auth/cloud-platform"]
 )
-
 # Refresh credentials to obtain access token
 google_credentials.refresh(Request())
 access_token = google_credentials.token
