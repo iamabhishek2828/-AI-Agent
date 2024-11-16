@@ -4,10 +4,8 @@
 ## **Overview**
 
 The **AI Agent** is a cutting-edge solution designed to assist in data search, summarization, and storage through seamless integration with modern technologies. Leveraging powerful APIs like **SerpApi**, **Google Generative Language API**, and **Firebase Firestore**, this project allows users to perform intelligent searches, summarize results, and store the findings in both **Google Sheets** and **Firebase Firestore**. Additionally, it provides features for uploading CSV files, performing entity-based searches, and fetching relevant news articles.
-
 This project showcases the use of AI-driven tools to facilitate decision-making processes by summarizing web data, enhancing productivity, and simplifying information storage in a highly automated manner.
-
----
+You can also try the deployed version of the app here: [Live Demo on Streamlit](https://abhishekchoudhary.streamlit.app/)
 
 ## **Features**
 
