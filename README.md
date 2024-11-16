@@ -28,7 +28,6 @@ You can also try the deployed version of the app here: [Live Demo on Streamlit](
 ### 5. **News Fetching**
    - Fetch and display real-time news articles related to user queries, using the **News API**.
 
----
 
 ## **Technology Stack**
 
@@ -41,7 +40,6 @@ The AI Agent leverages an array of powerful technologies and APIs to deliver a s
 - **Google Sheets API**: For writing results directly to Google Sheets for collaborative and easy sharing.
 - **News API**: To fetch the latest news articles related to the user’s query.
   
----
 
 ## **Getting Started**
 
@@ -91,7 +89,6 @@ The AI Agent leverages an array of powerful technologies and APIs to deliver a s
 
    This will start the application locally, accessible through your browser at `http://localhost:8501`.
 
----
 
 ## **How It Works**
 
@@ -110,7 +107,6 @@ The AI Agent leverages an array of powerful technologies and APIs to deliver a s
 ### 5. **News Fetching**:
    In addition to web searches, the app allows users to retrieve related news articles in real-time based on their search queries.
 
----
 
 ## **Technological Highlights**
 
@@ -119,7 +115,6 @@ The AI Agent leverages an array of powerful technologies and APIs to deliver a s
 - **Flexible Data Storage**: Users can choose whether they prefer to store results in a **cloud-based database** (Firestore) or a **collaborative document** (Google Sheets).
 - **Seamless User Experience**: The app offers a clean, user-friendly interface via **Streamlit**, making it easy for non-technical users to interact with advanced AI-driven tools.
 
----
 
 ## **Firebase Setup**
 
@@ -141,13 +136,11 @@ We welcome contributions to enhance the functionality and scalability of this pr
 
 Feel free to create **issues** for bugs or feature requests, and we’ll prioritize them accordingly.
 
----
 
 ## **License**
 
 This project is licensed under the **MIT License**, granting you the freedom to modify, distribute, and use the code as you wish.
 
----
 
 ## **Acknowledgments**
 
