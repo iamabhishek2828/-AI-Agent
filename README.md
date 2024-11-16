@@ -124,7 +124,6 @@ To enable Firebase integration:
 2. Set up Firebase Admin SDK, and generate a service account key (JSON).
 3. Update the `.env` file with the path to your Firebase credentials file.
 
----
 
 ## **Contributing**
 
